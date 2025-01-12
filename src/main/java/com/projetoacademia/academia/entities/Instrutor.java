@@ -1,8 +1,13 @@
 package com.projetoacademia.academia.entities;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.time.LocalDateTime;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_instrutor")
 public class Instrutor extends Usuario implements Serializable{
 	private static final long serialVersionUID = 1L;
 
@@ -25,7 +30,7 @@ public class Instrutor extends Usuario implements Serializable{
             Double circunferenciaDaCoxa,
             Double cardio,
             String avaliacaoTexto,
-            Date momento
+            LocalDateTime momento
         ) {
             
             Double imc = peso / (altura * altura); // Calcula o IMC

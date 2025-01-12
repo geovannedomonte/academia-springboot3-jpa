@@ -2,11 +2,22 @@ package com.projetoacademia.academia.entities;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_avaliacao")
 public class Avaliacao implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Double peso;
 	private Double altura;
@@ -18,7 +29,7 @@ public class Avaliacao implements Serializable{
 	private Double circunferenciaDaCoxa;
 	private Double cardio;
 	private String avaliacao;
-	private Date momento;
+	private LocalDateTime momento;
 	
 	public Avaliacao() {
 	}
@@ -27,7 +38,7 @@ public class Avaliacao implements Serializable{
 
 	public Avaliacao(Long id, Double peso, Double altura, Double imc, Double gorduraCorporal, Double massaMuscular,
 			Double circunferenciaDoBraco, Double circunferenciaDaCintura, Double circunferenciaDaCoxa, Double cardio,
-			String avaliacao, Date momento) {
+			String avaliacao, LocalDateTime momento) {
 		super();
 		this.id = id;
 		this.peso = peso;
@@ -133,11 +144,11 @@ public class Avaliacao implements Serializable{
 		this.avaliacao = avaliacao;
 	}
 
-	public Date getMomento() {
+	public LocalDateTime getMomento() {
 		return momento;
 	}
 
-	public void setMomento(Date momento) {
+	public void setMomento(LocalDateTime momento) {
 		this.momento = momento;
 	}
 
